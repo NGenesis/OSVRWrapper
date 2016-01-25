@@ -10,6 +10,10 @@
 #define OSVRWRAPPER_API __declspec(dllimport)
 #endif
 
-OSVRWRAPPER_API int OSVR_Init(const char *contextname);
-OSVRWRAPPER_API int OSVR_GetHMDRotation(float *w, float *x, float *y, float *z);
-OSVRWRAPPER_API int OSVR_GetHMDPosition(float *x, float *y, float *z);
+OSVRWRAPPER_API bool OSVR_Init(const char *contextname);
+OSVRWRAPPER_API void OSVR_Update();
+OSVRWRAPPER_API bool OSVR_IsHMDDetected();
+OSVRWRAPPER_API void OSVR_GetHMDRotation(double *w, double *x, double *y, double *z);
+OSVRWRAPPER_API void OSVR_GetHMDRotationPitchYawRoll(double *pitch, double *yaw, double *roll);
+OSVRWRAPPER_API void OSVR_GetHMDPosition(double *x, double *y, double *z);
+OSVRWRAPPER_API void OSVR_ResetHMDRotationFromHead();
